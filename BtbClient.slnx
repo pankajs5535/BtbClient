@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="BtbClient.API/BtbClient.API.csproj" />
+  <Project Path="BtbClient.Application/BtbClient.Application.csproj" />
+  <Project Path="BtbClient.Domain/BtbClient.Domain.csproj" />
+  <Project Path="BtbClient.Persistence/BtbClient.Persistence.csproj" />
+</Solution>
