@@ -1,4 +1,10 @@
+//Auto Mapper
+using BtbClient.Application.Mapping;
+using BtbClient.Application.Validators;
 using BtbClient.Persistence.Data;
+// Register FluentValidation.
+
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +15,12 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
 builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnections")));
+
+builder.Services.AddValidatorsFromAssemblyContaining<CreateRawMaterialValidator>();
+
+builder.Services.AddAutoMapper(cfg => { }, typeof(ItemProfile).Assembly);
+
+
 
 builder.Services.AddOpenApi();
 

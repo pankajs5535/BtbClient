@@ -8,41 +8,34 @@ namespace BtbClient.Application.Interfaces.IRepositories
     public interface IRawMaterialRepository:IGenericRepository<RawMaterial>
     {
         // Get Raw Material by Material Code
-         public Task<RawMaterial> GetBycodeAsync(string code);
-
+        Task<RawMaterial?> GetByCodeAsync(string code);
 
         // Get Raw Materials by Material Type
-        public Task<IEnumerable<RawMaterial>> GetByMaterialTypeAsync();
+        Task<IEnumerable<RawMaterial>> GetByTypeAsync(string type);
 
         // Search by Code, Name, Grade, Specification, HSN, Country, Quality Standard
-        public Task<IEnumerable<RawMaterial>> SearchByStringAsync(string text);
+        Task<IEnumerable<RawMaterial>> SearchAsync(string keyword);
 
         // Get Active Raw Materials
-        public Task<IEnumerable<RawMaterial>> IsActiveAsync();
-
+        Task<IEnumerable<RawMaterial>> GetActiveAsync();
 
         // Get Inactive Raw Materials
-        public Task<IEnumerable<RawMaterial>> IsInactive();
-
+        Task<IEnumerable<RawMaterial>> GetInactiveAsync();
 
         // Get Raw Materials created between two dates
-        public Task<IEnumerable<RawMaterial>> FromToDate(string fromDate, string toDate);
-
+        Task<IEnumerable<RawMaterial>> GetByDateRangeAsync(DateTime fromDate, DateTime toDate);
 
         // Check duplicate Material Code
-        public Task<IEnumerable<RawMaterial>> CheckDeuplicate(int no);
-
+        Task<bool> IsMaterialCodeExistsAsync(string materialCode);
 
         // Get Raw Materials below Reorder Point
-        public Task<IEnumerable<RawMaterial>> GetByOrder();
-
+        Task<IEnumerable<RawMaterial>> GetLowStockAsync();
 
         // Get Raw Materials supplied by a specific Supplier
-        public Task<IEnumerable<RawMaterial>> SpecificSupplier(string supplier);
-
+        Task<IEnumerable<RawMaterial>> GetBySupplierAsync(int supplierId);
 
         // Get Controlled Substance Raw Materials
-        public Task<IEnumerable<RawMaterial>> GetUsb();
+        Task<IEnumerable<RawMaterial>> GetControlledSubstancesAsync();
 
 
     }
