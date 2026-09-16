@@ -12,7 +12,7 @@ namespace BtbClient.Application.Interfaces.IRepositories
 
         // Get By Id
 
-        Task<T> GetById(int id);
+        Task<T> GetByIdAsync(int id);
 
         // Find
         Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);

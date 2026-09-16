@@ -9,5 +9,7 @@ namespace BtbClient.Application.Interfaces.IUnitOfWork
     {
         IRawMaterialRepository RawMaterials { get; }
 
+        Task<int> SaveChangesAsync();
+
     }
 }
