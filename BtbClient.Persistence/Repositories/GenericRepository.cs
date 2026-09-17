@@ -26,7 +26,7 @@ namespace BtbClient.Persistence.Repositories
         }
 
         // Get By Id
-        public async Task<T> GetById(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }
@@ -78,7 +78,6 @@ namespace BtbClient.Persistence.Repositories
         {
             _dbSet.RemoveRange(entities);
         }
-
 
     }
 
